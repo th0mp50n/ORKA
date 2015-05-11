@@ -1,4 +1,5 @@
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nl.dtls</groupId>
@@ -16,13 +17,18 @@
     </organization>
 
     <properties>
+        <!-- build settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
+        <!-- common dependencies -->
         <org.slf4j.version>1.7.12</org.slf4j.version>
         <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
         <com.google.code.findbugs.version>3.0.0</com.google.code.findbugs.version>
+
+        <!-- plugins -->
+        <license-maven-plugin.version>1.8</license-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -65,7 +71,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>1.8</version>
+                <version>${license-maven-plugin.version}</version>
                 <configuration>
                     <licenseName>apache_v2</licenseName>
                 </configuration>
