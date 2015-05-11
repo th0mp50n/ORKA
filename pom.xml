@@ -1,0 +1,83 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>nl.dtls</groupId>
+    <artifactId>triple-annotator</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Triple Annotator</name>
+    <description>Allow users/curators to annotate any existing (RDF) graph.</description>
+    <inceptionYear>2015</inceptionYear>
+    
+    <organization>
+        <name>DTL</name>
+        <url>http://www.dtls.nl</url>
+    </organization>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <org.slf4j.version>1.7.12</org.slf4j.version>
+        <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
+        <com.google.code.findbugs.version>3.0.0</com.google.code.findbugs.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${org.springframework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${com.google.code.findbugs.version}</version>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>annotator-model</module>
+        <module>annotator-web</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.8</version>
+                <configuration>
+                    <licenseName>apache_v2</licenseName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
