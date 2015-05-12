@@ -28,7 +28,7 @@
         <com.google.code.findbugs.version>3.0.0</com.google.code.findbugs.version>
 
         <!-- plugins -->
-        <license-maven-plugin.version>1.8</license-maven-plugin.version>
+        <license-maven-plugin.version>2.11</license-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -69,16 +69,28 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
+                <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <version>${license-maven-plugin.version}</version>
                 <configuration>
-                    <licenseName>apache_v2</licenseName>
+                    <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
+                    <aggregate>true</aggregate>
+                    <properties>
+                        <owner>${project.organization.name}</owner>
+                        <email/>
+                    </properties>
+                    <mapping>
+                        <java>SLASHSTAR_STYLE</java>
+                    </mapping>
+                    <excludes>
+                        <exclude>**/pom.xml</exclude>
+                        <exclude>**/*.txt</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>update-file-header</goal>
+                            <goal>format</goal>
                         </goals>
                         <phase>compile</phase>
                     </execution>
