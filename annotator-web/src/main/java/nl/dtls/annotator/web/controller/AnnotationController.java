@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/annotation")
 public class AnnotationController {
-	@RequestMapping(method = RequestMethod.GET)
-	public String hello() {
-		return "hello";
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String hello() {
+        return "hello";
+    }
 }

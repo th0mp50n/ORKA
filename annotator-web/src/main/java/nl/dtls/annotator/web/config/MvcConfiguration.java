@@ -24,5 +24,5 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @ComponentScan("nl.dtls.annotator.web.controller")
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
-
+    
 }
