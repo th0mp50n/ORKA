@@ -85,6 +85,7 @@
                     <excludes>
                         <exclude>**/pom.xml</exclude>
                         <exclude>**/*.txt</exclude>
+                        <exclude>**/*.xml</exclude>
                     </excludes>
                 </configuration>
                 <executions>

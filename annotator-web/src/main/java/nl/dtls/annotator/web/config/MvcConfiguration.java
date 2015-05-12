@@ -17,12 +17,14 @@ package nl.dtls.annotator.web.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("nl.dtls.annotator.web.controller")
+@ComponentScan({ "nl.dtls.annotator.web.controller", "nl.dtls.annotator.web.security"})
+@ImportResource("classpath:yaml-context.xml")
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
     
 }
