@@ -1,0 +1,55 @@
+/*
+ * Copyright (C) 2015 DTL (${email})
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package nl.dtls.annotator.model;
+
+public class AnnotationMetaData {
+    private LabeledResource subject;
+    private LabeledResource predicate;
+    private LabeledResource object;
+    private Referrer referrer;
+    
+    public LabeledResource getSubject() {
+        return subject;
+    }
+    
+    public void setSubject(LabeledResource subject) {
+        this.subject = subject;
+    }
+    
+    public LabeledResource getPredicate() {
+        return predicate;
+    }
+    
+    public void setPredicate(LabeledResource predicate) {
+        this.predicate = predicate;
+    }
+    
+    public LabeledResource getObject() {
+        return object;
+    }
+    
+    public void setObject(LabeledResource object) {
+        this.object = object;
+    }
+    
+    public Referrer getReferrer() {
+        return referrer;
+    }
+    
+    public void setReferrer(Referrer referrer) {
+        this.referrer = referrer;
+    }
+}
