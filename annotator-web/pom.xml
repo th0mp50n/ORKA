@@ -12,11 +12,15 @@
     <packaging>war</packaging>
 
     <properties>
+        <org.springframework.security.version>4.0.1.RELEASE</org.springframework.security.version>
+        <org.apache.oltu.oauth2.version>1.0.0</org.apache.oltu.oauth2.version>
+
         <!-- provided -->
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 
         <!-- runtime -->
-        <com.fasterxml.jackson.version>2.5.3</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.version>2.6.0-rc1</com.fasterxml.jackson.version>
+        <org.yaml.snakeyaml.version>1.15</org.yaml.snakeyaml.version>
 
         <!-- build settings -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -32,6 +36,21 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${org.springframework.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${org.springframework.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.client</artifactId>
+            <version>${org.apache.oltu.oauth2.version}</version>
+        </dependency>
 
         <!-- provided -->
         <dependency>
@@ -46,6 +65,18 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${com.fasterxml.jackson.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${org.yaml.snakeyaml.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${org.slf4j.version}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>

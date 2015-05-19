@@ -13,16 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nl.dtls.annotator.web.config;
-
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-@Configuration
-@EnableWebMvc
-@ComponentScan("nl.dtls.annotator.web.controller")
-public class MvcConfiguration extends WebMvcConfigurerAdapter {
-
-}
+/**
+ * Security specific functionality.
+ */
+@javax.annotation.ParametersAreNonnullByDefault
+package nl.dtls.annotator.web.security;

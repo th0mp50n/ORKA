@@ -23,32 +23,32 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-	@Override
-	protected Class<?>[] getRootConfigClasses() {
-		return array();
-	}
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return array(WebMvcConfig.class, SecurityConfig.class);
+    }
 
-	@Override
-	protected Class<?>[] getServletConfigClasses() {
-		return array(MvcConfiguration.class);
-	}
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return array();
+    }
 
-	@Override
-	protected String[] getServletMappings() {
-		return array("/");
-	}
-	
-	@Override
-	protected Filter[] getServletFilters() {
-		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-		characterEncodingFilter.setEncoding(StandardCharsets.UTF_8.name());
-		characterEncodingFilter.setForceEncoding(true);
-		
-		return array(characterEncodingFilter);
-	}
-	
-	@SafeVarargs
-	private static <T> T[] array(T... array) {
-		return array;
-	}
+    @Override
+    protected String[] getServletMappings() {
+        return array("/");
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding(StandardCharsets.UTF_8.name());
+        characterEncodingFilter.setForceEncoding(true);
+        
+        return array(characterEncodingFilter);
+    }
+
+    @SafeVarargs
+    private static <T> T[] array(T... array) {
+        return array;
+    }
 }

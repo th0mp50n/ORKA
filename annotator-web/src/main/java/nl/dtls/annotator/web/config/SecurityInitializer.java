@@ -13,17 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nl.dtls.annotator.web.controller;
+package nl.dtls.annotator.web.config;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
-@RestController
-@RequestMapping("/annotation")
-public class AnnotationController {
-    @RequestMapping(method = RequestMethod.GET)
-    public String hello() {
-        return "hello";
-    }
+public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+
 }
