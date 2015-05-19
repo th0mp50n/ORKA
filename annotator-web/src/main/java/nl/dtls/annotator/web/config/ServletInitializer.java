@@ -20,13 +20,12 @@ import java.nio.charset.StandardCharsets;
 import javax.servlet.Filter;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return array(MvcConfiguration.class);
+        return array(WebMvcConfig.class, SecurityConfig.class);
     }
 
     @Override
@@ -45,7 +44,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
         characterEncodingFilter.setEncoding(StandardCharsets.UTF_8.name());
         characterEncodingFilter.setForceEncoding(true);
         
-        return array(characterEncodingFilter, new DelegatingFilterProxy("OAuth2Filter"));
+        return array(characterEncodingFilter);
     }
 
     @SafeVarargs
