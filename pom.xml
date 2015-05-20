@@ -26,6 +26,7 @@
         <org.slf4j.version>1.7.12</org.slf4j.version>
         <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
         <com.google.code.findbugs.version>3.0.0</com.google.code.findbugs.version>
+        <com.google.guava.version>18.0</com.google.guava.version>
 
         <!-- plugins -->
         <license-maven-plugin.version>2.11</license-maven-plugin.version>
@@ -58,6 +59,11 @@
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>annotations</artifactId>
             <version>${com.google.code.findbugs.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${com.google.guava.version}</version>
         </dependency>
     </dependencies>
 
