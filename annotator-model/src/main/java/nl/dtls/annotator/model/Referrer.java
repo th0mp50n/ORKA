@@ -17,6 +17,8 @@ package nl.dtls.annotator.model;
 
 import java.net.URL;
 
+import com.google.common.base.MoreObjects;
+
 public class Referrer {
     private String returnLabel;
     private URL returnUrl;
@@ -44,5 +46,14 @@ public class Referrer {
     
     public void setVersion(String version) {
         this.version = version;
+    }
+    
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("returnLabel", returnLabel)
+                .add("returnUrl", returnUrl)
+                .add("version", version)
+                .toString();
     }
 }

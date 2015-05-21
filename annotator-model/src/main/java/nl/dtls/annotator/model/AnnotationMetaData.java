@@ -15,6 +15,8 @@
  */
 package nl.dtls.annotator.model;
 
+import com.google.common.base.MoreObjects;
+
 public class AnnotationMetaData {
     private LabeledResource subject;
     private LabeledResource predicate;
@@ -51,5 +53,15 @@ public class AnnotationMetaData {
     
     public void setReferrer(Referrer referrer) {
         this.referrer = referrer;
+    }
+    
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("subject", subject)
+                .add("predicate", predicate)
+                .add("object", object)
+                .add("referrer", referrer)
+                .toString();
     }
 }

@@ -17,6 +17,8 @@ package nl.dtls.annotator.model;
 
 import java.net.URI;
 
+import com.google.common.base.MoreObjects;
+
 public class LabeledResource {
     private URI uri;
     private String label;
@@ -35,5 +37,13 @@ public class LabeledResource {
     
     public void setLabel(String label) {
         this.label = label;
+    }
+    
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("uri", uri)
+                .add("label", label)
+                .toString();
     }
 }
