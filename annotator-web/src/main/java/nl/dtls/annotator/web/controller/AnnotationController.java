@@ -16,34 +16,29 @@
 package nl.dtls.annotator.web.controller;
 
 import java.net.URI;
-import java.util.List;
 
-import nl.dtls.annotator.model.LabeledResource;
+import nl.dtls.annotator.model.AnnotationMetaData;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.google.common.collect.ImmutableList;
 
 @RestController
 @RequestMapping("/annotation")
 public class AnnotationController {
-    @RequestMapping(value = "/predicates", method = RequestMethod.GET)
-    public List<LabeledResource> getPredicates() {
-        LabeledResource predicate1 = new LabeledResource();
-        predicate1.setLabel("treats");
-        predicate1.setUri(URI.create("http://www.example.com/treats"));
-        LabeledResource predicate2 = new LabeledResource();
-        predicate2.setLabel("interacts with");
-        predicate2.setUri(URI.create("http://www.example.com/interactswith"));
-        LabeledResource predicate3 = new LabeledResource();
-        predicate3.setLabel("does not affect");
-        predicate3.setUri(URI.create("http://www.example.com/doesnotaffect"));
-        LabeledResource predicate4 = new LabeledResource();
-        predicate4.setLabel("coexists with");
-        predicate4.setUri(URI.create("http://www.example.com/coexistswith"));
-        
-        return ImmutableList.of(predicate1, predicate2, predicate3, predicate4);
+    private static final Logger logger = LoggerFactory.getLogger(AnnotationController.class);
+    
+    @RequestMapping(value = "/triple", method = RequestMethod.GET)
+    public AnnotationMetaData annotateTriple(@RequestParam AnnotationMetaData metaData) {
+        logger.info("annotating {}", metaData);
+        return metaData;
+    }
+    
+    @RequestMapping(method = RequestMethod.POST)
+    public URI submitNanopub() {
+        return URI.create("http://nanopubstore.org/nanopub/123");
     }
 }
