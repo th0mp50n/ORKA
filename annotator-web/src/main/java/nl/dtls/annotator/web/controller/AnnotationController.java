@@ -17,13 +17,10 @@ package nl.dtls.annotator.web.controller;
 
 import java.net.URI;
 
-import nl.dtls.annotator.model.AnnotationMetaData;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -31,14 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class AnnotationController {
     private static final Logger logger = LoggerFactory.getLogger(AnnotationController.class);
     
-    @RequestMapping(value = "/triple", method = RequestMethod.GET)
-    public AnnotationMetaData annotateTriple(@RequestParam AnnotationMetaData metaData) {
-        logger.info("annotating {}", metaData);
-        return metaData;
-    }
-    
     @RequestMapping(method = RequestMethod.POST)
-    public URI submitNanopub() {
+    public URI submitAnnotation() {
         return URI.create("http://nanopubstore.org/nanopub/123");
     }
 }

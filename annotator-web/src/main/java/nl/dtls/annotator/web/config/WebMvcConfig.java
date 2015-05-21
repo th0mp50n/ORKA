@@ -15,25 +15,38 @@
  */
 package nl.dtls.annotator.web.config;
 
+import nl.dtls.annotator.web.converter.AnnotationMetaDataConverter;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.web.servlet.ViewResolver;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan({ "nl.dtls.annotator.web.controller", "nl.dtls.annotator.web.security"})
 @ImportResource("classpath:yaml-context.xml")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new AnnotationMetaDataConverter(objectMapper()));
+    }
+    
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp("/WEB-INF/views/", ".jsp");
+    }
+    
     @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/views/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        // TODO configure objectmapper
+        return objectMapper;
     }
 }
