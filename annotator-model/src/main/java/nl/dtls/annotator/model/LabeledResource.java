@@ -13,23 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nl.dtls.annotator.web.controller;
+package nl.dtls.annotator.model;
 
 import java.net.URI;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.google.common.base.MoreObjects;
 
-@RestController
-@RequestMapping("/annotation")
-public class AnnotationController {
-    private static final Logger logger = LoggerFactory.getLogger(AnnotationController.class);
+public class LabeledResource {
+    private URI uri;
+    private String label;
     
-    @RequestMapping(method = RequestMethod.POST)
-    public URI submitAnnotation() {
-        return URI.create("http://nanopubstore.org/nanopub/123");
+    public URI getUri() {
+        return uri;
+    }
+    
+    public void setUri(URI uri) {
+        this.uri = uri;
+    }
+    
+    public String getLabel() {
+        return label;
+    }
+    
+    public void setLabel(String label) {
+        this.label = label;
+    }
+    
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("uri", uri)
+                .add("label", label)
+                .toString();
     }
 }
