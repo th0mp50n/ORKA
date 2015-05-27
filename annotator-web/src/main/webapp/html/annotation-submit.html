@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-4 subject">
+        <h1><span class="label label-primary">{{annotation.subject.label}}</span></h1>
+    </div>
+    
+    <div class="col-md-4 predicate">
+        <h1><span class="label label-primary">{{newPredicate.label}}</span></h1>
+    </div>
+    
+    <div class="col-md-4 object">
+        <h1><span class="label label-primary">{{annotation.object.label}}</span></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div id="commentSection" class="well" ng-hide="!comment">
+            <label for="comment">Your comment</label>
+            <textarea class="form-control" id="comment" rows="3" ng-model="comment" readonly></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="btnRow" class="row">
+    <div class="col-md-1 col-md-offset-6">
+        <a class="btn btn-primary" href="#/annotate">Back</a>
+    </div>
+    <div class="col-md-1">
+        <a class="btn btn-primary" href="#/complete" ng-click="submit()">Submit</a>
+    </div>
+</div>

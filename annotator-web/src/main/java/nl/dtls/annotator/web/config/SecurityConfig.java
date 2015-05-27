@@ -40,6 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
                 .loginPage("/auth")
                 .and()
-            .addFilterAfter(oauth2ResponseFilter, AbstractPreAuthenticatedProcessingFilter.class);
+            .addFilterAfter(oauth2ResponseFilter, AbstractPreAuthenticatedProcessingFilter.class)
+            // TODO integrate spring-sec csrf and angular xsrf
+            .csrf().disable();
     }
 }
