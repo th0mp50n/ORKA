@@ -112,6 +112,7 @@
                         <exclude>**/*.txt</exclude>
                         <exclude>**/*.xml</exclude>
                         <exclude>**/*.jsp</exclude>
+                        <exclude>**/*.html</exclude>
                     </excludes>
                 </configuration>
                 <executions>

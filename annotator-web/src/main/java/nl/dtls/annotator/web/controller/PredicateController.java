@@ -38,12 +38,15 @@ public class PredicateController {
         predicate2.setLabel("interacts with");
         predicate2.setUri(URI.create("http://www.example.com/interactswith"));
         LabeledResource predicate3 = new LabeledResource();
-        predicate3.setLabel("does not affect");
-        predicate3.setUri(URI.create("http://www.example.com/doesnotaffect"));
+        predicate3.setLabel("transmitted by");
+        predicate3.setUri(URI.create("http://example.com/transmitted"));
         LabeledResource predicate4 = new LabeledResource();
-        predicate4.setLabel("coexists with");
-        predicate4.setUri(URI.create("http://www.example.com/coexistswith"));
+        predicate4.setLabel("does not affect");
+        predicate4.setUri(URI.create("http://www.example.com/doesnotaffect"));
+        LabeledResource predicate5 = new LabeledResource();
+        predicate5.setLabel("coexists with");
+        predicate5.setUri(URI.create("http://www.example.com/coexistswith"));
         
-        return ImmutableList.of(predicate1, predicate2, predicate3, predicate4);
+        return ImmutableList.of(predicate1, predicate2, predicate3, predicate4, predicate5);
     }
 }
