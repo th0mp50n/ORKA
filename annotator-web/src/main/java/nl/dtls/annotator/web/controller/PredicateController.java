@@ -15,38 +15,24 @@
  */
 package nl.dtls.annotator.web.controller;
 
-import java.net.URI;
 import java.util.List;
 
 import nl.dtls.annotator.model.LabeledResource;
+import nl.dtls.annotator.service.PredicateService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.common.collect.ImmutableList;
-
 @RestController
 @RequestMapping("/predicate")
 public class PredicateController {
+    @Autowired
+    private PredicateService service;
+    
     @RequestMapping(method = RequestMethod.GET)
     public List<LabeledResource> listPredicates() {
-        LabeledResource predicate1 = new LabeledResource();
-        predicate1.setLabel("treats");
-        predicate1.setUri(URI.create("http://www.example.com/treats"));
-        LabeledResource predicate2 = new LabeledResource();
-        predicate2.setLabel("interacts with");
-        predicate2.setUri(URI.create("http://www.example.com/interactswith"));
-        LabeledResource predicate3 = new LabeledResource();
-        predicate3.setLabel("transmitted by");
-        predicate3.setUri(URI.create("http://example.com/transmitted"));
-        LabeledResource predicate4 = new LabeledResource();
-        predicate4.setLabel("does not affect");
-        predicate4.setUri(URI.create("http://www.example.com/doesnotaffect"));
-        LabeledResource predicate5 = new LabeledResource();
-        predicate5.setLabel("coexists with");
-        predicate5.setUri(URI.create("http://www.example.com/coexistswith"));
-        
-        return ImmutableList.of(predicate1, predicate2, predicate3, predicate4, predicate5);
+        return service.getPredicates();
     }
 }

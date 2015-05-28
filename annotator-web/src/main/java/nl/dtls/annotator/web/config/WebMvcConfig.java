@@ -15,11 +15,13 @@
  */
 package nl.dtls.annotator.web.config;
 
+import nl.dtls.annotator.service.ServiceConfig;
 import nl.dtls.annotator.web.converter.AnnotationMetaDataConverter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -31,8 +33,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({ "nl.dtls.annotator.web.controller", "nl.dtls.annotator.web.security"})
+@ComponentScan("nl.dtls.annotator.web.controller")
 @ImportResource("classpath:yaml-context.xml")
+@Import(ServiceConfig.class)
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addFormatters(FormatterRegistry registry) {
