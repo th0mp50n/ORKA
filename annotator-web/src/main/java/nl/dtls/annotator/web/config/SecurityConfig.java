@@ -18,6 +18,7 @@ package nl.dtls.annotator.web.config;
 import nl.dtls.annotator.web.security.OAuth2ResponseFilter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,6 +27,7 @@ import org.springframework.security.web.authentication.preauth.AbstractPreAuthen
 
 @Configuration
 @EnableWebSecurity
+@ComponentScan("nl.dtls.annotator.web.security")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private OAuth2ResponseFilter oauth2ResponseFilter;

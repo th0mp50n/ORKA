@@ -13,26 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package nl.dtls.annotator.web.controller;
+package nl.dtls.annotator.service;
 
 import java.util.List;
 
 import nl.dtls.annotator.model.LabeledResource;
-import nl.dtls.annotator.service.PredicateService;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-@RequestMapping("/predicate")
-public class PredicateController {
-    @Autowired
-    private PredicateService service;
-    
-    @RequestMapping(method = RequestMethod.GET)
-    public List<LabeledResource> listPredicates() {
-        return service.getPredicates();
-    }
+public interface PredicateService {
+    List<LabeledResource> getPredicates();
 }

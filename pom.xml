@@ -27,6 +27,7 @@
         <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
         <com.google.code.findbugs.version>3.0.0</com.google.code.findbugs.version>
         <com.google.guava.version>18.0</com.google.guava.version>
+        <com.fasterxml.jackson.version>2.6.0-rc1</com.fasterxml.jackson.version>
 
         <!-- plugins -->
         <license-maven-plugin.version>2.11</license-maven-plugin.version>
@@ -84,10 +85,16 @@
             <artifactId>guava</artifactId>
             <version>${com.google.guava.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${com.fasterxml.jackson.version}</version>
+        </dependency>
     </dependencies>
 
     <modules>
         <module>annotator-model</module>
+        <module>annotator-service</module>
         <module>annotator-web</module>
     </modules>
 
