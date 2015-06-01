@@ -17,10 +17,16 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#/about">About</a></li>
                 </ul>
-                <p class="navbar-text navbar-right">
-                    Signed in as <a class="navbar-link" href="https://sandbox.orcid.org/<sec:authentication property="credentials"/>">
-                    <sec:authentication property="name"/></a>
-                </p>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            Signed in as <sec:authentication property="name"/>&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="logout">Logout</a>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </nav>
         

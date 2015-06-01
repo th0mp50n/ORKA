@@ -42,6 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
                 .loginPage("/auth")
                 .and()
+            .logout() // default to /logout
+                .logoutSuccessUrl("/auth?logout")
+                .and()
             .addFilterAfter(oauth2ResponseFilter, AbstractPreAuthenticatedProcessingFilter.class)
             // TODO integrate spring-sec csrf and angular xsrf
             .csrf().disable();
