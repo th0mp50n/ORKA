@@ -20,7 +20,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            Signed in as <sec:authentication property="name"/>&nbsp;<span class="caret"></span>
+                            Signed in as <sec:authentication property="name"/> (<sec:authentication property="credentials.providerName"/>) <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="logout">Logout</a>

@@ -74,17 +74,19 @@ public class OAuth2ResponseFilter extends AbstractAuthenticationProcessingFilter
         try {
             oauthAuthenticationResponse = OAuthAuthzResponse.oauthCodeAuthzResponse(request);
         } catch (OAuthProblemException e) {
-            logger.info("error: {}", e.getError());
-            logger.info("description: {}", e.getDescription());
-            logger.info("response status: {}", e.getResponseStatus());
-            logger.info("uri: {}", e.getUri());
-            logger.info("redirect uri: {}", e.getRedirectUri());
-            
             response.sendRedirect(request.getContextPath() + "/auth?error=" + e.getDescription());
             // TODO handle this more gracefully
             return null;
         }
         
+        // determine the authentication provider
+        String servletPath = request.getServletPath();
+        String[] parts = servletPath.substring(1).split("\\/", 3);
+        // TODO validate the servlet path and redirect to error page if need be
+        String providerName = parts[1];
+        
+        // TODO abstract the authentication logic per provider and provide a
+        // provider registry for provider resolving
         try {
             OAuthClientRequest oauthClientRequest = OAuthClientRequest
                     .tokenLocation(tokenUrl)
@@ -97,10 +99,14 @@ public class OAuth2ResponseFilter extends AbstractAuthenticationProcessingFilter
             OAuthClient oauthClient = new OAuthClient(new URLConnectionClient());
             OAuthJSONAccessTokenResponse oauthAccessTokenResponse = oauthClient.accessToken(oauthClientRequest);
             
+            AuthenticationProviderDetails details = new AuthenticationProviderDetails();
+            details.setProviderName(providerName);
+            details.setAuthenticatedId(oauthAccessTokenResponse.getParam("orcid"));
+            
             PreAuthenticatedAuthenticationToken token =
                     new PreAuthenticatedAuthenticationToken(
                             oauthAccessTokenResponse.getParam("name"),
-                            oauthAccessTokenResponse.getParam("orcid"));
+                            details);
             token.setAuthenticated(true);
             
             return token;
