@@ -42,8 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
                 .loginPage("/auth")
                 .and()
-            .logout()
-                .logoutUrl("/auth/logout")
+            .logout() // default to /logout
                 .logoutSuccessUrl("/auth?logout")
                 .and()
             .addFilterAfter(oauth2ResponseFilter, AbstractPreAuthenticatedProcessingFilter.class)
