@@ -12,7 +12,7 @@
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#/">Annotator</a>
+                    <span class="navbar-brand">Annotator <sup class="beta">BETA</sup></span>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="#/about">About</a></li>
