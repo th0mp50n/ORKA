@@ -23,6 +23,14 @@ public class LabeledResource {
     private URI uri;
     private String label;
     
+    public LabeledResource() {
+    }
+    
+    public LabeledResource(URI uri, String label) {
+        this.uri = uri;
+        this.label = label;
+    }
+    
     public URI getUri() {
         return uri;
     }
