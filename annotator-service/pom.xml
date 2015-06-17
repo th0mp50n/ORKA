@@ -13,6 +13,7 @@
 
     <properties>
         <org.apache.httpcomponents.version>4.5</org.apache.httpcomponents.version>
+        <org.nanopub.version>1.6</org.nanopub.version>
     </properties>
 
     <dependencies>
@@ -25,6 +26,17 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>fluent-hc</artifactId>
             <version>${org.apache.httpcomponents.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.nanopub</groupId>
+            <artifactId>nanopub</artifactId>
+            <version>${org.nanopub.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>
