@@ -27,7 +27,7 @@
         <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
         <com.google.code.findbugs.version>3.0.0</com.google.code.findbugs.version>
         <com.google.guava.version>18.0</com.google.guava.version>
-        <com.fasterxml.jackson.version>2.6.0-rc1</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.version>2.6.0-rc2</com.fasterxml.jackson.version>
 
         <!-- plugins -->
         <license-maven-plugin.version>2.11</license-maven-plugin.version>
