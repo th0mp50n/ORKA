@@ -31,6 +31,12 @@
         </nav>
         
         <div class="container">
+	        <div class="alert alert-info" role="alert">
+	            <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+	            <strong>WARNING!</strong> This service is still in beta, and this specific instance is for development purposes.
+	                Data stored through this service might not be available in the future.
+	        </div>
+	        
             <div ng-view></div>
         </div>
         
