@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="redux">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/redux.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container" ng-controller="NavbarCtrl">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/">Annotator<sup><small>BETA</small></sup></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#/about">About</a></li>
+                    <li ng-if="showEditReturn"><a href="#/annotate/edit">Return to edit</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" ng-if="$root.user" ng-cloak>
+                        <a href class="dropdown-toggle" data-toggle="dropdown">Signed in as {{$root.user.name}} ({{$root.user.provider}}) <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-href="{{$root.user.url}}">{{$root.user.provider}} profile</a>
+                            <li><a href ng-click="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <noscript>
+                <div class="alert alert-info">
+                    Please enable javascript to make use of this service.
+                </div>
+            </noscript>
+        
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Please be advised</strong> that this service is in beta. All data entered through this service
+                is not guaranteed to be persisted. 
+            </div>
+            
+            <div ng-view></div>
+            
+            <hr/>
+            
+            <footer>
+                <p>&copy; DTLS 2015</p>
+            </footer>
+        </div>
+        
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+        <script src="js/redux.js"></script>
+    </body>
+</html>

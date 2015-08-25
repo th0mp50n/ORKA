@@ -1,0 +1,35 @@
+<div class="alert alert-info" role="alert" ng-if="showWarning">
+    <strong>Heads up!</strong> You cannot go back because your annotation has already been submitted.
+</div>
+
+<h1>Complete</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Your annotation has been stored as a nanopublication at <a href="{{nanopub}}">{{nanopub}}</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <a href ng-click="loadNanopub()">Click here to load your nanopub</a>
+        <div ng-if="nanopubRaw">
+            <div class="alert alert-warning">
+                <strong>Warning</strong>, the nanopublication model for annotations is not yet finished.
+            </div>
+            <pre>{{nanopubRaw}}</pre>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" ng-model="logoutOnReturn"/>
+                Logout when returning to tool
+            </label>
+        </div>
+        <a class="btn btn-default" ng-click="returnToSource()" ng-href="{{sourceLocation}}">Return to {{returnLabel}}</a>
+    </div>
+</div>
