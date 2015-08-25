@@ -18,11 +18,11 @@
         <org.apache.oltu.oauth2.version>1.0.0</org.apache.oltu.oauth2.version>
         <org.apache.httpcomponents.version>4.5</org.apache.httpcomponents.version>
         <com.google.guava.version>19.0-rc1</com.google.guava.version>
-        <com.github.spullara.mustache.java.version>0.9.0</com.github.spullara.mustache.java.version>
+        <com.github.spullara.mustache.java.version>0.9.1</com.github.spullara.mustache.java.version>
         
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         
-        <org.yaml.snakeyaml.version>1.15</org.yaml.snakeyaml.version>
+        <org.yaml.snakeyaml.version>1.16</org.yaml.snakeyaml.version>
         <javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
         <org.slf4j.version>1.7.12</org.slf4j.version>
         
