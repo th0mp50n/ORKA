@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="//rawgit.com/axel-zarate/js-custom-select/master/css/style.css" rel="stylesheet"/>
         <link href="css/redux.css" rel="stylesheet"/>
     </head>
     <body>
@@ -52,13 +54,20 @@
             </footer>
         </div>
         
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+        <!-- older angular version for js-custom-select, see http://git.io/vZYeX -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.18/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.18/angular-route.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+        
+        <!-- tmp to check out js-custom-select -->
+        <script>angular.module('ui.filters', []);</script>
+        <script src="//rawgit.com/axel-zarate/js-custom-select/master/js/format.js"></script>
+        <script src="//rawgit.com/axel-zarate/js-custom-select/master/js/customSelect.js"></script>
+        
         <script src="js/redux.js"></script>
     </body>
 </html>

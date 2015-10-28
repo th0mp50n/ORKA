@@ -8,7 +8,7 @@
 @prefix dctypes: <http://purl.org/dc/dcmitype/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<> {
+:head {
     <> a np:Nanopublication ;
         np:hasAssertion :assertion ;
         np:hasProvenance :provenance ;
@@ -16,18 +16,16 @@
 }
 
 :assertion {
-    <{{subject}}> <{{newPredicate}}> <{{object}}> .
-# have the narrative as assertion as well? or a reference to the assertion?
+    <{{subjectUri}}> <{{newPredicateUri}}> <{{objectUri}}> .
 }
 
-# does not work, get response: Expected '{', found 'p' [line 23]
-#:assertion prov:wasDerivedFrom :annotation .
-
 :provenance {
+    :assertion prov:wasDerivedFrom :annotation .
+    
     :annotation a oa:Annotation ;
         oa:annotatedBy <{{orcid}}> ;
         oa:motivatedBy oa:editing ;
-#       something timestamp
+#TODO   something timestamp
         oa:hasBody :cbody ;
         oa:hasTarget :trgt .
 
@@ -48,14 +46,22 @@
         cnt:chars """{{narrative}}""" .
 
     :trgt a rdf:Statement ;
-#       oa:hasSource <{{source?}}> ;
+#TODO   oa:hasSource <{{source?}}> ;
         rdf:subject <{{subjectUri}}> ;
         rdf:predicate <{{predicateUri}}> ;
         rdf:object <{{objectUri}}> .
 
     <{{predicateUri}}> rdfs:label "{{predicate}}" .
+    
+#TODO <source-uri> rdfs:label "source-label" .
 }
 
 :publicationInfo {
-# todo add info here
+    # TODO:
+    # date of nanopub
+    # tool uri and version
+    # author
+    
+    # license
+    <> dc:license <https://creativecommons.org/licenses/by/4.0/> .
 }

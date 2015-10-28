@@ -1,4 +1,4 @@
-angular.module('redux', ['ngRoute', 'ui.bootstrap'])
+angular.module('redux', ['ngRoute', 'ui.bootstrap', 'ui.filters', 'AxelSoft'])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -100,6 +100,7 @@ angular.module('redux', ['ngRoute', 'ui.bootstrap'])
   })
   .controller('AnnotateEditCtrl', function($scope, $rootScope, $http, $location, labelStuff) {
     $http.get('predicates').success(function(data, status) {
+      console.log('retrieved ' + data.length + ' predicates');
       $scope.predicates = data;
     }).error(function(data, status) {
       console.log(status + '|failed to retrieved predicates');
@@ -109,7 +110,8 @@ angular.module('redux', ['ngRoute', 'ui.bootstrap'])
       $rootScope.metadata = data;
       labelStuff(data.subject, 'subject', $scope);
       //labelStuff(data.predicate, 'predicate', $scope);
-      $scope.predicate = data.predicate;
+//      $scope.predicate = data.predicate;
+      $scope.predicate = 'treats';
       labelStuff(data.object, 'object', $scope);
     });
     
@@ -151,7 +153,9 @@ angular.module('redux', ['ngRoute', 'ui.bootstrap'])
     console.log($scope.nanopub);
     
     $scope.loadNanopub = function() {
-      $http.get($scope.nanopub).success(function(data, status) {
+      $http.get($scope.nanopub, {
+        'headers': { 'Accept': 'application/x-trig' }
+      }).success(function(data, status) {
         $scope.nanopubRaw = data;
       }).error(function(data, status) {
         $scope.nanopubRaw = 'Could not load nanopub';

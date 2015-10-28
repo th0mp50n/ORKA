@@ -27,9 +27,9 @@ import nl.dtls.annotator.redux.service.PredicateService;
 public class BrainPredicateService implements PredicateService, InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(BrainPredicateService.class);
     
-    @Value("predicates.brain.username") private String brainUsername;
-    @Value("predicates.brain.password") private String brainPassword;
-    @Value("predicates.brain.endpoint") private String brainEndpoint;
+    @Value("${predicates.brain.username}") private String brainUsername;
+    @Value("${predicates.brain.password}") private String brainPassword;
+    @Value("${predicates.brain.endpoint}") private String brainEndpoint;
     
     @Autowired
     private ObjectMapper objectMapper;
@@ -82,7 +82,7 @@ public class BrainPredicateService implements PredicateService, InitializingBean
     
     @JsonIgnoreProperties(ignoreUnknown = true)
     private static class Predicate {
-        public UUID id;
+        public String id; // no longer UUID formatted identifiers as of 07/Sep/2015
         public String name;
     }
 }
