@@ -1,0 +1,8 @@
+/* derived from http://briantree.se/quick-tip-15-fix-ng-cloak-flicker-angularjs/ */
+[ng-cloak] {
+  display: none !important;
+}
+
+div.login-modal-content {
+  padding: 15px;
+}
